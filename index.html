@@ -429,10 +429,13 @@
         
         function showResult(prediction) {
             const resultDiv = document.getElementById('predictionResult');
+            const aiIndicator = prediction.isAIGenerated ? 
+                '<span style="background: #4CAF50; color: white; padding: 4px 8px; border-radius: 12px; font-size: 0.8rem; margin-left: 10px;">🤖 Real AI</span>' :
+                '<span style="background: #FF9800; color: white; padding: 4px 8px; border-radius: 12px; font-size: 0.8rem; margin-left: 10px;">📊 Statistical</span>';
             
             resultDiv.innerHTML = `
                 <div class="prediction-result">
-                    <h3>🎯 AI Prediction: ${prediction.prediction}</h3>
+                    <h3>🎯 AI Prediction: ${prediction.prediction} ${aiIndicator}</h3>
                     <p><strong>Confidence Level:</strong> ${prediction.confidence}%</p>
                     <p style="margin-top: 15px; opacity: 0.9;">${prediction.analysis}</p>
                     
